@@ -1,0 +1,324 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body {
+  direction: rtl;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .text-left {
+  text-align: right;
+}
+
+.rtl .mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+.rtl .ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+/* تنسيق للطباعة */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm; /* تقليل الهوامش */
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 14px; /* حجم النص للطباعة */
+  }
+
+  .print\:hidden, .no-print {
+    display: none !important;
+  }
+
+  .print\:shadow-none, .shadow-md, .shadow-lg {
+    box-shadow: none !important; /* إزالة الظلال */
+  }
+
+  .print\:border-none, .border {
+    border: none !important;
+  }
+
+  .print\:break-before-page {
+    break-before: page;
+  }
+
+  #invoice-details-section,
+  #invoice-products-section,
+  #order-summary-section,
+  #bank-account-section {
+    page-break-before: always;
+    margin: 0;
+    padding: 5mm 0; /* ضبط المسافات للطباعة */
+  }
+
+  h1, h2, h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .keep-together {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    overflow: visible;
+    margin-bottom: 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table td, table th {
+    padding: 2mm;
+  }
+}
+
+@layer base {
+  img {
+    display: initial;
+  }
+}
+
+@font-face {
+  font-family: "Amiri";
+  src: url("/fonts/Amiri-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Tajawal", sans-serif;
+}
+
+.tajawal-extralight {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 200;
+}
+
+.tajawal-light {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 300;
+}
+
+.tajawal-regular {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 400;
+}
+
+.tajawal-medium {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 500;
+}
+
+.tajawal-bold {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 700;
+}
+
+.tajawal-extrabold {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 800;
+}
+
+.tajawal-black {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 900;
+}
+
+@media print {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+h1 {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-size: 2.25rem;
+}
+
+.parent {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+@media print {
+  #invoice-details-section, 
+  #invoice-products-section, 
+  #order-summary-section,
+  #company-address-section, 
+  #bank-account-section {
+    page-break-before: always;
+  }
+}
+
+
+
+@media print, screen {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #invoice-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    display: block;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+
+
+@media print, screen {
+  #invoice-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    display: block;
+    text-align: start; /* ضبط المحاذاة لبداية الصفحة */
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+/* 
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+} */
+
+
+
+
+/* styles.css */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* لون الخلفية مع الشفافية */
+  backdrop-filter: blur(5px); /* تأثير الضبابية */
+  z-index: 50; /* تأكد من أن العنصر في أعلى مستوى */
+}
+
+
+
+
+/* تخصيص شريط التمرير */
+.table-container::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f1f1f1;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+
+
+.font-english {
+  font-family: "Roboto Slab", sans-serif; /* اختر الخط المناسب */
+}
+
